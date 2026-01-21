@@ -1,0 +1,92 @@
+# Lord of the Rings - Registry & Reviews
+
+Prueba técnica Fullstack para UMIA. Aplicación para listar películas de LOTR y gestionar reseñas en tiempo real.
+
+## Stack Tecnológico
+
+- **Frontend:** React + TypeScript + TailwindCSS (Vite)
+- **Backend:** Hono.js (Node.js)
+- **Base de Datos:** PostgreSQL (Docker)
+- **Arquitectura:** BFF (Backend for Frontend) Proxy pattern
+
+---
+
+## Requisitos previos
+
+Asegúrate de tener instalado:
+1.  **Node.js** (v18 o superior)
+2.  **Docker & Docker Compose** (Para la base de datos)
+3.  **Git**
+
+---
+
+## Instalación y Configuración
+
+Sigue estos pasos en orden para levantar el proyecto:
+
+### 1. Clonar el repositorio
+
+git clone [https://github.com/isabellanoy/umia-test.git](https://github.com/isabellanoy/umia-test.git)
+cd umia-test
+
+
+### 2. Levantar la Base de Datos
+
+Usamos Docker para facilitar todo.
+
+docker compose up -d
+
+### 3. Configurar el Backend
+
+cd server
+npm install
+
+Crea un archivo .env en la carpeta /server con las siguientes variables:
+
+# Conexión a DB
+DATABASE_URL="postgresql://admin:password123@localhost:5433/lotr_registry"
+
+THE_ONE_API_TOKEN="Saqe-1vNohNlxl75LQkl" 
+
+**Inicializar la Base de Datos:**
+Ejecuta este script para crear la tabla de reseñas automáticamente:
+
+npx tsx src/setup-db.ts
+
+
+*(Deberías ver el mensaje de exito)*
+
+### 4. Configurar el Frontend
+
+Abre una nueva terminal:
+
+cd client
+npm install
+
+---
+
+## ▶Ejecución
+
+Necesitas dos terminales corriendo simultáneamente:
+
+**Terminal 1: Backend**
+
+cd server
+npm run dev
+
+*El servidor correrá en: http://localhost:3000*
+
+**Terminal 2: Frontend**
+
+cd client
+npm run dev
+
+*La aplicación abrirá en: http://localhost:5173*
+
+---
+
+## Características
+
+* **Proxy API:** El frontend no expone la API Key; todas las peticiones pasan por el servidor Hono.
+* **Persistencia:** Las reseñas se guardan permanentemente en PostgreSQL.
+* **Diseño:** Interfaz moderna y responsive usando TailwindCSS v4.
