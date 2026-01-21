@@ -4,19 +4,19 @@ Prueba técnica Fullstack para UMIA. Aplicación para listar películas de LOTR 
 
 ## Stack Tecnológico
 
-- **Frontend:** React + TypeScript + TailwindCSS (Vite)
-- **Backend:** Hono.js (Node.js)
-- **Base de Datos:** PostgreSQL (Docker)
-- **Arquitectura:** BFF (Backend for Frontend) Proxy pattern
+- Frontend: React + TypeScript + TailwindCSS (Vite)
+- Backend: Hono.js (Node.js)
+- Base de Datos: PostgreSQL (Docker)
+- Arquitectura: BFF (Backend for Frontend) Proxy pattern
 
 ---
 
 ## Requisitos previos
 
 Asegúrate de tener instalado:
-1.  **Node.js** (v18 o superior)
-2.  **Docker & Docker Compose** (Para la base de datos)
-3.  **Git**
+1.  Node.js (v18 o superior)
+2.  Docker & Docker Compose (Para la base de datos)
+3.  Git
 
 ---
 
@@ -48,13 +48,13 @@ DATABASE_URL="postgresql://admin:password123@localhost:5433/lotr_registry"
 
 THE_ONE_API_TOKEN="Saqe-1vNohNlxl75LQkl" 
 
-**Inicializar la Base de Datos:**
+Inicializar la Base de Datos:
 Ejecuta este script para crear la tabla de reseñas automáticamente:
 
 npx tsx src/setup-db.ts
 
 
-*(Deberías ver el mensaje de exito)*
+(Deberías ver el mensaje de exito)
 
 ### 4. Configurar el Frontend
 
@@ -69,16 +69,16 @@ npm install
 
 Necesitas dos terminales corriendo simultáneamente:
 
-**Terminal 1: Backend**
+Terminal 1: Backend
 
 cd server
 npm run dev
 
-*El servidor correrá en: http://localhost:3000*
+El servidor correrá en: http://localhost:3000
 
-**Terminal 2: Frontend**
+Terminal 2: Frontend
 
 cd client
 npm run dev
 
-*La aplicación abrirá en: http://localhost:5173*
+La aplicación abrirá en: http://localhost:5173
